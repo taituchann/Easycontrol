@@ -69,7 +69,7 @@ public class ClientStream {
   private void startServer(Device device) throws Exception {
     if (BuildConfig.ENABLE_DEBUG_FEATURE || !adb.runAdbCmd("ls /data/local/tmp/easycontrol_*").contains(serverName)) {
       adb.runAdbCmd("rm /data/local/tmp/easycontrol_* ");
-      adb.pushFile(AppData.applicationContext.getResources().openRawResource(R.raw.easycontrol_server), serverName, null);
+      //adb.pushFile(AppData.applicationContext.getResources().openRawResource(R.raw.easycontrol_server), serverName, null);
     }
     shell = adb.getShell();
     shell.write(ByteBuffer.wrap(("app_process -Djava.class.path=" + serverName + " / top.saymzx.easycontrol.server.Server"
